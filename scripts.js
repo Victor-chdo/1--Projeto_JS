@@ -1,15 +1,19 @@
 const convertButton = document.querySelector(".convert-button")
 const currencySelect = document.querySelector(".currency-select")
+const currencySelectValueToConvert = document.querySelector(".currency-select-value-to-convert")
 
 function convertValues() {
     //console.log("Funcionou!")
 
-    const inputCurrencyValue = document.querySelector(".input-currency").value
+    const inputCurrencyValue = document.querySelector(".input-currency").value    
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") // Valor em Real
     const currencyValueConverted = document.querySelector(".currency-value") // Outras moedas
 
+    const realToday =
     const dolarToday = 5.2
-    const euroToday = 6.2
+    const euroToday = 6.1
+    const libraToday = 7
+    const bitcoinToday = 406.09754
 
     if (currencySelect.value == "dolar") {
         //Se o select estiver selecionando o valor de dolar, entre aqui
