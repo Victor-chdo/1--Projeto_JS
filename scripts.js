@@ -2,6 +2,13 @@ const convertButton = document.querySelector(".convert-button")
 const currencySelect = document.querySelector(".currency-select")
 const currencySelectValueToConvert = document.querySelector(".currency-select-value-to-convert")
 
+
+const moedas = {
+        real: {
+
+        }
+    }
+
 function convertValues() {
     //console.log("Funcionou!")
 
@@ -10,75 +17,10 @@ function convertValues() {
     const currencyValueConverted = document.querySelector(".currency-value") // Outras moedas
 
 
-    const dolarToday = 5.2
-    const euroToday = 6.1
-    const libraToday = 7
-    const bitcoinToday = 406097.54
+    const valor = 
 
-    if (currencySelectValueToConvert.value === "BRL") {
 
-        if (currencySelect.value == "dolar") {
-            //Se o select estiver selecionando o valor de dolar, entre aqui
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD"
-            }).format(inputCurrencyValue / dolarToday)
-        }
-
-        if (currencySelect.value == "euro") {
-            //Se o select estiver selecionando o valor de euro, entre aqui
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-                style: "currency",
-                currency: "EUR"
-            }).format(inputCurrencyValue / euroToday)
-        }
-
-        if (currencySelect.value == "libra") {
-            //Se o select estiver selecionando o valor de libra, entre aqui
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
-                style: "currency",
-                currency: "GBP"
-            }).format(inputCurrencyValue / libraToday)
-        }
-
-        if (currencySelect.value == "bitcoin") {
-            //Se o select estiver selecionando o valor de bitcoin, entre aqui
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "XBT", //código não oficial comum para bitcoin
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 8
-            }).format(inputCurrencyValue / bitcoinToday)
-        }
-
-        currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        }).format(inputCurrencyValue)
-    }
-    else if (currencySelectValueToConvert.value !== "BRL")
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function changeCurrency() {
@@ -115,3 +57,4 @@ function changeCurrency() {
 
 currencySelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertValues)
+currencySelectValueToConvert.addEventListener("change", )
