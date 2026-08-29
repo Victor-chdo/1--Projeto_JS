@@ -14,23 +14,25 @@ const imageDestino = document.querySelector(".img-destino")
 
 const moedas = {
     BRL: {
-        nome: "Real Brasileiro", taxa: 1, local: "pt-BR", currency: "BRL", image: "./assets/Real.svg"
+        nome: "Real Brasileiro", decimais: 2, taxa: 1, local: "pt-BR", currency: "BRL", image: "./assets/Real.svg"
     }, USD: {
-        nome: "Dólar Americano", taxa: 5.2, local: "en-US", currency: "USD", image: "./assets/Dolar.svg"
+        nome: "Dólar Americano", decimais: 2, taxa: 5.2, local: "en-US", currency: "USD", image: "./assets/Dolar.svg"
     }, EUR: {
-        nome: "Euro", taxa: 6.2, local: "de-DE", currency: "EUR", image: "./assets/Euro.svg"
+        nome: "Euro", taxa: 6.2, decimais: 2, local: "de-DE", currency: "EUR", image: "./assets/Euro.svg"
     }, GBP: {
-        nome: "Libra Esterlina", taxa: 7, local: "en-GB", currency: "GBP", image: "./assets/Libra.svg"
+        nome: "Libra Esterlina", decimais: 2, taxa: 7, local: "en-GB", currency: "GBP", image: "./assets/Libra.svg"
     }, BTC: {
-        nome: "BitCoin", taxa: 406097.54, local: "pt-BR", currency: "XBT", image: "./assets/BitCoin.png"
+        nome: "BitCoin", decimais: 8, taxa: 406097.54, local: "pt-BR", currency: "XBT", image: "./assets/BitCoin.png"
     }
 }
 
 function formatarMoeda(moeda, numero) {
     const textoFormatado = new Intl.NumberFormat(moeda.local, {
         style: "currency",
-        currency: moeda.currency
+        currency: moeda.currency,
+        maximumFractionDigits: moeda.decimais
     }).format(numero)
+    
     return textoFormatado
 }
 // ver nota 1
@@ -51,6 +53,7 @@ function changeCurrencyLeft() {
 
     nameOrigem.textContent = origem.nome
     imageOrigem.src = origem.image
+    imageOrigem.alt = `Símbolo da moeda ${origem.nome}`
 
     inputValor.placeholder = formatarMoeda(origem, 10000)
 
@@ -62,6 +65,7 @@ function changeCurrencyRight() {
 
     nameDestino.textContent = destino.nome
     imageDestino.src = destino.image
+    imageDestino.alt = `Símbolo da moeda ${destino.nome}`
 
     convertValues()
 }

@@ -15,17 +15,17 @@
 </head>
 
 <body>
-    <img class="logo" src="/assets/cash-logo.gif" alt="logo">
+    <img class="logo" src="/assets/cash-logo.gif" alt="Logo do Conversor de Moedas">
 
     <main>
         <label>Converter <b>de</b>
 
             <select class="currency-select-value-to-convert">
-                <option value="BRL">BRL - Real Brasileiro</option>
-                <option value="USD">USD - Dólar Americano</option>
-                <option value="EUR">EUR - Euro</option>
-                <option value="GBP">GBP - Libra Esterlina</option>
-                <option value="BTC">BTC - Bitcoin</option>
+                <option value="BRL" selected>R$ - Real Brasileiro</option>
+                <option value="USD">US$ - Dólar Americano</option>
+                <option value="EUR">€ - Euro</option>
+                <option value="GBP">£ - Libra Esterlina</option>
+                <option value="BTC">₿ - Bitcoin</option>
             </select>
         </label>
 
@@ -36,28 +36,28 @@
                 <option value="USD" selected>US$ - Dólar Americano</option>
                 <option value="EUR">€ - Euro</option>
                 <option value="GBP">£ - Libra Esterlina</option>
-                <option value="BTC">₿ - BitCoin</option>
+                <option value="BTC">₿ - Bitcoin</option>
             </select>
         </label>
 
-        <label>
+        <label for="valorConversao"> 
             Valor
-            <input class="input-currency" placeholder="R$ 10.000,00">
+            <input inputmode="numeric" id="valorConversao" name="valor-conversao" class="input-currency" placeholder="R$ 10.000,00">
         </label>
 
         <button class="convert-button">Converter</button>
 
         <section>
             <div class="currency-box">
-                <img class="img-origem" src="/assets/Real.svg" alt="Logo-moeda-aConverter">
+                <img class="img-origem" src="/assets/Real.svg" alt="Símbolo da moeda a ser convertida">
                 <p class="currency-name-origem">Real</p>
                 <p class="currency-value-to-convert">R$ 0,00</p>
             </div>
 
-            <img class="arrow" src="/assets/Vector.svg" alt="seta">
+            <img class="arrow" src="/assets/Vector.svg" alt="">
 
             <div class="currency-box">
-                <img class="img-destino" src="/assets/Dolar.svg" alt="Logo-moeda-convertida">
+                <img class="img-destino" src="/assets/Dolar.svg" alt="Símbolo da moeda destino">
                 <p class="currency-name-destino">Dólar americano</p>
                 <p class="currency-value">$ 0.0</p>
             </div>
