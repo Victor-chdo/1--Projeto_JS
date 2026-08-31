@@ -8,6 +8,7 @@
 
 body {
     background-color: rgb(138, 81, 252);
+    height: 100%;
 }
 
 .logo {
@@ -17,11 +18,11 @@ body {
 }
 
 main {
-    width: 375px;
+    width: 35vw;
     background-color: #F4F4F4;
     border-radius: 20px;
     padding: 15px;
-    margin: 0 auto;
+    margin: 0 auto 3vh;
 }
 
 label {
@@ -55,10 +56,12 @@ button {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
 button:hover {
     opacity: .8;
+    transform: translateY(-8px);
 }
 
 button:active {
@@ -73,16 +76,115 @@ section {
     padding: 12px;
 }
 
-.arrow {
-    margin: 15px 0;
-}
-
 .currency-name-origem, .currency-name-destino {
     color: #777777;
+}
+
+.arrow {
+    margin: 15px 0;
 }
 
 .currency-value, .currency-value-to-convert {
     color: #555555;
     font-weight: 700;
     font-size: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 1030px) {
+    .logo {
+        width: 30vw;
+        margin: 5vh auto;
+    }
+    main {
+        width: 70vw;
+        margin: 0 auto 7vh;
+    }
+    label {
+        font-size: 2.7rem;
+    }
+    select, input {
+        font-size: 2.20rem;
+    }
+    button {
+        font-size: 2.7rem;
+    }
+    section {
+        margin-top: 4vh;
+        padding: 2vh;
+    }
+    .img-origem, .img-destino {
+        height: 7vh;
+    }
+    .currency-name-origem, .currency-name-destino {
+        font-size: 2.5rem;
+    }
+    .currency-value-to-convert, .currency-value {
+        font-size: 2.3rem;
+    }
+}
+
+@media (min-width: 440px) and (max-width: 770px) {
+    .logo {
+        width: 40vw;
+        margin: 5vh auto;
+    }
+    main {
+        width: 92.5vw;
+        margin: 0 auto 4vh;
+    }
+    label {
+        font-size: 1.7rem;
+    }
+    select, input {
+        font-size: 1.5rem;
+    }
+    button {
+        font-size: 1.8rem;
+    }
+    section {
+        margin-top: 4vh;
+        padding: 2vh;
+    }
+    .img-origem, .img-destino {
+        height: 8vh;
+    }
+    .currency-name-origem, .currency-name-destino {
+        font-size: 1.9rem;
+    }
+    .currency-value-to-convert, .currency-value {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 439px) {
+        .logo {
+        width: 50vw;
+        margin: 5vh auto;
+    }
+    main {
+        width: 92.5vw;
+        margin: 0 auto 4vh;
+    }
+    label {
+        font-size: 1.4rem;
+    }
+    select, input {
+        font-size: 1.2rem;
+    }
+    button {
+        font-size: 1.5rem;
+    }
+    section {
+        margin-top: 4vh;
+        padding: 2vh;
+    }
+    .img-origem, .img-destino {
+        height: 8vh;
+    }
+    .currency-name-origem, .currency-name-destino {
+        font-size: 1.5rem;
+    }
+    .currency-value-to-convert, .currency-value {
+        font-size: 1.3rem;
+    }
 }
