@@ -33,3 +33,4 @@ inputValor.value.replace(/\D/g, "")
 Sobra só o esqueleto numérico. "R$ 1.234,56" → "123456" 😄 O ponto e a vírgula também são \D — morrem junto.
 
 
+Nota 3 - Fica só o registro técnico para o futuro: o `<h1>` também serve à **hierarquia semântica** e ao SEO — existe uma técnica chamada *visually hidden heading* (h1 presente no DOM mas invisível na tela) usada exatamente nesses casos.
