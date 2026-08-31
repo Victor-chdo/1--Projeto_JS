@@ -27,7 +27,7 @@ Obs.: Projeto proposto em aula do DevClub ✳️
 
 ## Uso
 1ª Opção - via deploy online
-- Acesse o link de deploy do projeto: https://victor-chdo.github.io/MEUPROJETOEXEMPLO/
+- Acesse o link de deploy do projeto: https://victor-chdo.github.io/1--Projeto_JS/
 
 2ª Opção - via servidor local
 - Clone o repositório com seus arquivos
