@@ -77,11 +77,11 @@ section {
     margin: 15px 0;
 }
 
-.currency {
+.currency-name-origem, .currency-name-destino {
     color: #777777;
 }
 
-.currency-value, .currency-value {
+.currency-value, .currency-value-to-convert {
     color: #555555;
     font-weight: 700;
     font-size: 20px;

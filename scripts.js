@@ -1,94 +1,97 @@
 const convertButton = document.querySelector(".convert-button")
 const currencySelect = document.querySelector(".currency-select")
+const currencySelectValueToConvert = document.querySelector(".currency-select-value-to-convert")
+const inputValor = document.querySelector(".input-currency")
+
+const valorInicial = document.querySelector(".currency-value-to-convert")
+const valorFinal = document.querySelector(".currency-value")
+
+const nameOrigem = document.querySelector(".currency-name-origem")
+const imageOrigem = document.querySelector(".img-origem")
+const nameDestino = document.querySelector(".currency-name-destino")
+const imageDestino = document.querySelector(".img-destino")
+
+
+const moedas = {
+    BRL: {
+        nome: "Real Brasileiro", decimais: 2, taxa: 1, local: "pt-BR", currency: "BRL", image: "./assets/Real.svg"
+    }, USD: {
+        nome: "Dólar Americano", decimais: 2, taxa: 5.2, local: "en-US", currency: "USD", image: "./assets/Dolar.svg"
+    }, EUR: {
+        nome: "Euro", taxa: 6.2, decimais: 2, local: "de-DE", currency: "EUR", image: "./assets/Euro.svg"
+    }, GBP: {
+        nome: "Libra Esterlina", decimais: 2, taxa: 7, local: "en-GB", currency: "GBP", image: "./assets/Libra.svg"
+    }, BTC: {
+        nome: "BitCoin", decimais: 8, taxa: 406097.54, local: "pt-BR", currency: "XBT", image: "./assets/BitCoin.png"
+    }
+}
+
+function formatarMoeda(moeda, numero) {
+    const textoFormatado = new Intl.NumberFormat(moeda.local, {
+        style: "currency",
+        currency: moeda.currency,
+        maximumFractionDigits: moeda.decimais
+    }).format(numero)
+    
+    return textoFormatado
+}
+// ver nota 1
 
 function convertValues() {
-    //console.log("Funcionou!")
+    const valor = obterValorNumerico()
+    const origem = moedas[currencySelectValueToConvert.value]
+    const destino = moedas[currencySelect.value]
+    const resultado = (valor * origem.taxa) / destino.taxa
 
-    const inputCurrencyValue = document.querySelector(".input-currency").value
-    const currencyValueToConvert = document.querySelector(".currency-value-to-convert") // Valor em Real
-    const currencyValueConverted = document.querySelector(".currency-value") // Outras moedas
-
-    const dolarToday = 5.2
-    const euroToday = 6.2
-
-    if (currencySelect.value == "dolar") {
-        //Se o select estiver selecionando o valor de dolar, entre aqui
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD"
-        }).format(inputCurrencyValue / dolarToday)
-    }
-
-    if (currencySelect.value == "euro") {
-        //Se o select estiver selecionando o valor de euro, entre aqui
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR"
-        }).format(inputCurrencyValue / euroToday)
-    }
-
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(inputCurrencyValue)
-
-
-    console.log(inputCurrencyValue)
+    valorInicial.textContent = formatarMoeda(origem, valor)
+    valorFinal.textContent = formatarMoeda(destino, resultado)
 }
 
 
+function changeCurrencyLeft() {
+    const origem = moedas[currencySelectValueToConvert.value]
 
+    nameOrigem.textContent = origem.nome
+    imageOrigem.src = origem.image
+    imageOrigem.alt = `Símbolo da moeda ${origem.nome}`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function changeCurrency (){
-    const currencyName = document.getElementById("currency-name")
-    const currencyImage = document.querySelector(".currency-img")
-
-    if(currencySelect.value == "real") {
-        currencyName.innerHTML = "Real brasileiro"
-        currencyImage.src = "./assets/Real.svg"
-    }
-
-    if(currencySelect.value == "dolar") {
-        currencyName.innerHTML = "Dólar americano"
-        currencyImage.src = "./assets/Dolar.svg"
-    }
-
-    if(currencySelect.value == "euro") {
-        currencyName.innerHTML = "Euro"
-        currencyImage.src = "./assets/Euro.svg"
-    }
-
-    if(currencySelect.value == "libra") {
-        currencyName.innerHTML = "Libra esterlina"
-        currencyImage.src = "./assets/Libra.svg"
-    }
-
-    if(currencySelect.value == "bitcoin") {
-        currencyName.innerHTML = "BitCoin"
-        currencyImage.src = "./assets/BitCoin.png"
-    }
+    inputValor.placeholder = formatarMoeda(origem, 10000)
 
     convertValues()
 }
 
-currencySelect.addEventListener("change", changeCurrency)
+function changeCurrencyRight() {
+    const destino = moedas[currencySelect.value]
+
+    nameDestino.textContent = destino.nome
+    imageDestino.src = destino.image
+    imageDestino.alt = `Símbolo da moeda ${destino.nome}`
+
+    convertValues()
+}
+
+function formatarInput() {
+    const valorNumerico = obterValorNumerico()
+
+    const origem = moedas[currencySelectValueToConvert.value]
+    inputValor.value = formatarMoeda(origem, valorNumerico)
+
+    convertValues()
+}
+
+function obterValorNumerico() {
+    const apenasDigitos = inputValor.value.replace(/\D/g, "")
+    const numeros = (parseFloat(apenasDigitos))/100 || 0
+
+    return numeros 
+}
+// ver nota 2
+
+changeCurrencyLeft()
+changeCurrencyRight()
+
+inputValor.addEventListener("input", formatarInput)
+currencySelectValueToConvert.addEventListener("change", changeCurrencyLeft)
+currencySelect.addEventListener("change", changeCurrencyRight)
 convertButton.addEventListener("click", convertValues)
+
