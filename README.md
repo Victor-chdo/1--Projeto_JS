@@ -1,4 +1,4 @@
-# Conversor de Moedas 🪙💱
+# Conversor de Moedas 💱
 
 ## Descrição
 Este projeto foi criado com o propósito de agilizar o dia a dia de quem fizer uma conversão por qualquer motivo, ele reúne até o momento quatro moedas de peso, e possui uma interface limpa e intuitiva com conversão em tempo real.
